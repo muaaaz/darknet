@@ -29,7 +29,7 @@ def read_image(image_path):
 	return image
 
 def read_checker(image_name,H,W):
-	csv = np.genfromtxt(os.path.join("CHECKER", f"{image_name}_mask.txt"), delimiter=',')
+	csv = np.genfromtxt(os.path.join("CHECKER", "{0}_mask.txt".format(image_name)), delimiter=',')
 	big_rec = csv[0]
 	small_recs = csv[1:]
 	
@@ -37,7 +37,7 @@ def read_checker(image_name,H,W):
 	xmx, ymx = big_rec[0] + big_rec[2], big_rec[1] + big_rec[3] 
 	x = (xmn+xmx)/2
 	y = (ymn+ymx)/2
-	f = open(os.path.join("fixed_data", f"{image_name}.txt"),'w')
+	f = open(os.path.join("fixed_data", "{0}.txt".format(image_name)),'w')
 	f.write(str(int(0)) + ' ' + str(x/W) + ' ' + str (y/H) + ' ' + str(big_rec[2]/W) + ' ' + str(big_rec[3]/H) + "\n")
 	
 	c = 1
