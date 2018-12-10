@@ -1,8 +1,11 @@
 import os
 import numpy as np
 import cv2
+names = []
 
 def read_image(image_path):
+	global names
+	names.append(image_path)
 	# We read the image
 	try:
 		image = cv2.imread(image_path,-1)
@@ -67,5 +70,8 @@ if __name__ == '__main__':
 				filename = file[:-4]
 				img = read_image(filepath)
 				read_checker(filename,img.shape[0],img.shape[1])
-
+	f = open('train.txt','w')
+	for x in names:
+		f.write(x + '\n')
+	
 			
