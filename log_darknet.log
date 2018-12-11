@@ -1,0 +1,358 @@
+layer     filters    size              input                output
+    0 conv     32  3 x 3 / 1   608 x 608 x   3   ->   608 x 608 x  32  0.639 BFLOPs
+    1 max          2 x 2 / 2   608 x 608 x  32   ->   304 x 304 x  32
+    2 conv     64  3 x 3 / 1   304 x 304 x  32   ->   304 x 304 x  64  3.407 BFLOPs
+    3 max          2 x 2 / 2   304 x 304 x  64   ->   152 x 152 x  64
+    4 conv    128  3 x 3 / 1   152 x 152 x  64   ->   152 x 152 x 128  3.407 BFLOPs
+    5 conv     64  1 x 1 / 1   152 x 152 x 128   ->   152 x 152 x  64  0.379 BFLOPs
+    6 conv    128  3 x 3 / 1   152 x 152 x  64   ->   152 x 152 x 128  3.407 BFLOPs
+    7 max          2 x 2 / 2   152 x 152 x 128   ->    76 x  76 x 128
+    8 conv    256  3 x 3 / 1    76 x  76 x 128   ->    76 x  76 x 256  3.407 BFLOPs
+    9 conv    128  1 x 1 / 1    76 x  76 x 256   ->    76 x  76 x 128  0.379 BFLOPs
+   10 conv    256  3 x 3 / 1    76 x  76 x 128   ->    76 x  76 x 256  3.407 BFLOPs
+   11 max          2 x 2 / 2    76 x  76 x 256   ->    38 x  38 x 256
+   12 conv    512  3 x 3 / 1    38 x  38 x 256   ->    38 x  38 x 512  3.407 BFLOPs
+   13 conv    256  1 x 1 / 1    38 x  38 x 512   ->    38 x  38 x 256  0.379 BFLOPs
+   14 conv    512  3 x 3 / 1    38 x  38 x 256   ->    38 x  38 x 512  3.407 BFLOPs
+   15 conv    256  1 x 1 / 1    38 x  38 x 512   ->    38 x  38 x 256  0.379 BFLOPs
+   16 conv    512  3 x 3 / 1    38 x  38 x 256   ->    38 x  38 x 512  3.407 BFLOPs
+   17 max          2 x 2 / 2    38 x  38 x 512   ->    19 x  19 x 512
+   18 conv   1024  3 x 3 / 1    19 x  19 x 512   ->    19 x  19 x1024  3.407 BFLOPs
+   19 conv    512  1 x 1 / 1    19 x  19 x1024   ->    19 x  19 x 512  0.379 BFLOPs
+   20 conv   1024  3 x 3 / 1    19 x  19 x 512   ->    19 x  19 x1024  3.407 BFLOPs
+   21 conv    512  1 x 1 / 1    19 x  19 x1024   ->    19 x  19 x 512  0.379 BFLOPs
+   22 conv   1024  3 x 3 / 1    19 x  19 x 512   ->    19 x  19 x1024  3.407 BFLOPs
+   23 conv   1024  3 x 3 / 1    19 x  19 x1024   ->    19 x  19 x1024  6.814 BFLOPs
+   24 conv   1024  3 x 3 / 1    19 x  19 x1024   ->    19 x  19 x1024  6.814 BFLOPs
+   25 route  16
+   26 conv     64  1 x 1 / 1    38 x  38 x 512   ->    38 x  38 x  64  0.095 BFLOPs
+   27 reorg              / 2    38 x  38 x  64   ->    19 x  19 x 256
+   28 route  27 24
+   29 conv   1024  3 x 3 / 1    19 x  19 x1280   ->    19 x  19 x1024  8.517 BFLOPs
+   30 conv    150  1 x 1 / 1    19 x  19 x1024   ->    19 x  19 x 150  0.111 BFLOPs
+   31 detection
+mask_scale: Using default '1.000000'
+yolov2
+Learning Rate: 0.001, Momentum: 0.9, Decay: 0.0005
+Resizing
+480
+Loaded: 0.330591 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.594466, Avg Recall: -nan,  count: 0
+1: 436.865723, 436.865723 avg, 0.000000 rate, 19.026050 seconds, 1 images
+Loaded: 0.000073 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.592768, Avg Recall: -nan,  count: 0
+2: 432.730103, 436.452148 avg, 0.000000 rate, 17.971504 seconds, 2 images
+Loaded: 0.000064 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.598541, Avg Recall: -nan,  count: 0
+3: 444.791077, 437.286041 avg, 0.000000 rate, 17.970226 seconds, 3 images
+Loaded: 0.000087 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.598194, Avg Recall: -nan,  count: 0
+4: 443.408051, 437.898254 avg, 0.000000 rate, 18.780256 seconds, 4 images
+Loaded: 0.000042 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.598927, Avg Recall: -nan,  count: 0
+5: 446.713959, 438.779816 avg, 0.000000 rate, 18.520137 seconds, 5 images
+Loaded: 0.000076 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.599486, Avg Recall: -nan,  count: 0
+6: 446.757721, 439.577606 avg, 0.000000 rate, 18.151188 seconds, 6 images
+Loaded: 0.000068 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.598547, Avg Recall: -nan,  count: 0
+7: 446.145569, 440.234406 avg, 0.000000 rate, 18.008277 seconds, 7 images
+Loaded: 0.000061 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.601302, Avg Recall: -nan,  count: 0
+8: 448.258636, 441.036835 avg, 0.000000 rate, 17.998699 seconds, 8 images
+Loaded: 0.000060 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.597237, Avg Recall: -nan,  count: 0
+9: 443.000824, 441.233246 avg, 0.000000 rate, 17.986319 seconds, 9 images
+Loaded: 0.000062 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.592405, Avg Recall: -nan,  count: 0
+10: 432.797333, 440.389648 avg, 0.000000 rate, 18.105468 seconds, 10 images
+Resizing
+480
+Loaded: 0.254690 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.589213, Avg Recall: -nan,  count: 0
+11: 427.621857, 439.112885 avg, 0.000000 rate, 18.779974 seconds, 11 images
+Loaded: 0.000089 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.598024, Avg Recall: -nan,  count: 0
+12: 442.725128, 439.474121 avg, 0.000000 rate, 18.936193 seconds, 12 images
+Loaded: 0.000073 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.599094, Avg Recall: -nan,  count: 0
+13: 447.878479, 440.314545 avg, 0.000000 rate, 17.987088 seconds, 13 images
+Loaded: 0.000092 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.598024, Avg Recall: -nan,  count: 0
+14: 443.947784, 440.677856 avg, 0.000000 rate, 18.845383 seconds, 14 images
+Loaded: 0.000093 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.591482, Avg Recall: -nan,  count: 0
+15: 432.198273, 439.829895 avg, 0.000000 rate, 18.108239 seconds, 15 images
+Loaded: 0.000064 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.595118, Avg Recall: -nan,  count: 0
+16: 436.529388, 439.499847 avg, 0.000000 rate, 18.808377 seconds, 16 images
+Loaded: 0.000087 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.599539, Avg Recall: -nan,  count: 0
+17: 442.053101, 439.755188 avg, 0.000000 rate, 18.785766 seconds, 17 images
+Loaded: 0.000080 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.594170, Avg Recall: -nan,  count: 0
+18: 440.468475, 439.826508 avg, 0.000000 rate, 18.947318 seconds, 18 images
+Loaded: 0.000066 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.596927, Avg Recall: -nan,  count: 0
+19: 441.169128, 439.960754 avg, 0.000000 rate, 18.995211 seconds, 19 images
+Loaded: 0.000088 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.598124, Avg Recall: -nan,  count: 0
+20: 441.431183, 440.107788 avg, 0.000000 rate, 18.508065 seconds, 20 images
+Resizing
+576
+Loaded: 0.314512 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.596006, Avg Recall: -nan,  count: 0
+21: 636.422546, 459.739258 avg, 0.000000 rate, 24.492250 seconds, 21 images
+Loaded: 0.000056 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.599987, Avg Recall: -nan,  count: 0
+22: 642.208191, 477.986145 avg, 0.000000 rate, 25.693785 seconds, 22 images
+Loaded: 0.000079 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.598206, Avg Recall: -nan,  count: 0
+23: 640.592712, 494.246796 avg, 0.000000 rate, 25.368311 seconds, 23 images
+Loaded: 0.000093 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.593578, Avg Recall: -nan,  count: 0
+24: 628.733398, 507.695465 avg, 0.000000 rate, 25.185837 seconds, 24 images
+Loaded: 0.000075 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.598769, Avg Recall: -nan,  count: 0
+25: 640.437561, 520.969666 avg, 0.000000 rate, 25.006029 seconds, 25 images
+Loaded: 0.000070 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.597445, Avg Recall: -nan,  count: 0
+26: 640.750977, 532.947815 avg, 0.000000 rate, 24.683679 seconds, 26 images
+Loaded: 0.000096 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.592187, Avg Recall: -nan,  count: 0
+27: 626.207642, 542.273804 avg, 0.000000 rate, 24.145336 seconds, 27 images
+Loaded: 0.000062 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.594399, Avg Recall: -nan,  count: 0
+28: 630.129150, 551.059326 avg, 0.000000 rate, 25.914011 seconds, 28 images
+Loaded: 0.000087 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.597045, Avg Recall: -nan,  count: 0
+29: 634.751892, 559.428589 avg, 0.000000 rate, 24.950482 seconds, 29 images
+Loaded: 0.000062 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.599005, Avg Recall: -nan,  count: 0
+30: 638.684387, 567.354187 avg, 0.000000 rate, 24.229801 seconds, 30 images
+Resizing
+448
+Loaded: 0.308396 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.600345, Avg Recall: -nan,  count: 0
+31: 387.153168, 549.334106 avg, 0.000000 rate, 15.051051 seconds, 31 images
+Loaded: 0.000061 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.597030, Avg Recall: -nan,  count: 0
+32: 386.233795, 533.024048 avg, 0.000000 rate, 15.010858 seconds, 32 images
+Loaded: 0.000056 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.593638, Avg Recall: -nan,  count: 0
+33: 381.507416, 517.872375 avg, 0.000000 rate, 15.122305 seconds, 33 images
+Loaded: 0.000064 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.595791, Avg Recall: -nan,  count: 0
+34: 381.967499, 504.281891 avg, 0.000000 rate, 15.359754 seconds, 34 images
+Loaded: 0.000073 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.588466, Avg Recall: -nan,  count: 0
+35: 369.485596, 490.802246 avg, 0.000000 rate, 15.167219 seconds, 35 images
+Loaded: 0.000059 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.597536, Avg Recall: -nan,  count: 0
+36: 387.720001, 480.494019 avg, 0.000000 rate, 14.971030 seconds, 36 images
+Loaded: 0.000062 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.597901, Avg Recall: -nan,  count: 0
+37: 388.256805, 471.270294 avg, 0.000000 rate, 14.974596 seconds, 37 images
+Loaded: 0.000060 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.599800, Avg Recall: -nan,  count: 0
+38: 389.008911, 463.044159 avg, 0.000000 rate, 14.831205 seconds, 38 images
+Loaded: 0.000082 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.590174, Avg Recall: -nan,  count: 0
+39: 377.310211, 454.470764 avg, 0.000000 rate, 15.947673 seconds, 39 images
+Loaded: 0.000094 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.595653, Avg Recall: -nan,  count: 0
+40: 383.271393, 447.350830 avg, 0.000000 rate, 15.871400 seconds, 40 images
+Resizing
+384
+Loaded: 0.289237 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.595595, Avg Recall: -nan,  count: 0
+41: 280.781769, 430.693909 avg, 0.000000 rate, 11.600574 seconds, 41 images
+Loaded: 0.000074 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.598385, Avg Recall: -nan,  count: 0
+42: 286.013123, 416.225830 avg, 0.000000 rate, 11.070550 seconds, 42 images
+Loaded: 0.000055 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.596466, Avg Recall: -nan,  count: 0
+43: 283.486176, 402.951874 avg, 0.000000 rate, 10.920736 seconds, 43 images
+Loaded: 0.000059 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.598537, Avg Recall: -nan,  count: 0
+44: 283.342712, 390.990967 avg, 0.000000 rate, 10.950872 seconds, 44 images
+Loaded: 0.000071 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.598913, Avg Recall: -nan,  count: 0
+45: 284.102570, 380.302124 avg, 0.000000 rate, 11.720149 seconds, 45 images
+Loaded: 0.000084 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.599454, Avg Recall: -nan,  count: 0
+46: 285.447815, 370.816681 avg, 0.000000 rate, 11.360923 seconds, 46 images
+Loaded: 0.000078 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.601321, Avg Recall: -nan,  count: 0
+47: 288.054810, 362.540497 avg, 0.000000 rate, 11.174050 seconds, 47 images
+Loaded: 0.000096 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.596846, Avg Recall: -nan,  count: 0
+48: 283.984985, 354.684937 avg, 0.000000 rate, 11.626543 seconds, 48 images
+Loaded: 0.000092 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.600170, Avg Recall: -nan,  count: 0
+49: 283.624481, 347.578888 avg, 0.000000 rate, 11.297640 seconds, 49 images
+Loaded: 0.000080 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.595523, Avg Recall: -nan,  count: 0
+50: 280.726929, 340.893677 avg, 0.000000 rate, 11.397613 seconds, 50 images
+Resizing
+352
+Loaded: 0.254820 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.601044, Avg Recall: -nan,  count: 0
+51: 240.028503, 330.807159 avg, 0.000000 rate, 10.084109 seconds, 51 images
+Loaded: 0.000062 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.593626, Avg Recall: -nan,  count: 0
+52: 234.364700, 321.162903 avg, 0.000000 rate, 9.794431 seconds, 52 images
+Loaded: 0.000058 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.596183, Avg Recall: -nan,  count: 0
+53: 236.785721, 312.725189 avg, 0.000000 rate, 9.789121 seconds, 53 images
+Loaded: 0.000081 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.597373, Avg Recall: -nan,  count: 0
+54: 236.576874, 305.110352 avg, 0.000000 rate, 9.990680 seconds, 54 images
+Loaded: 0.000062 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.598432, Avg Recall: -nan,  count: 0
+55: 238.652908, 298.464600 avg, 0.000000 rate, 9.712988 seconds, 55 images
+Loaded: 0.000062 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.602299, Avg Recall: -nan,  count: 0
+56: 240.010742, 292.619202 avg, 0.000000 rate, 9.660420 seconds, 56 images
+Loaded: 0.000060 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.596566, Avg Recall: -nan,  count: 0
+57: 239.172607, 287.274536 avg, 0.000000 rate, 9.694565 seconds, 57 images
+Loaded: 0.000077 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.596286, Avg Recall: -nan,  count: 0
+58: 237.835052, 282.330597 avg, 0.000000 rate, 9.715603 seconds, 58 images
+Loaded: 0.000067 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.599384, Avg Recall: -nan,  count: 0
+59: 240.058853, 278.103424 avg, 0.000000 rate, 9.872226 seconds, 59 images
+Loaded: 0.000056 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.599515, Avg Recall: -nan,  count: 0
+60: 241.794739, 274.472565 avg, 0.000000 rate, 9.914990 seconds, 60 images
+Resizing
+544
+Loaded: 0.278253 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.598081, Avg Recall: -nan,  count: 0
+61: 569.266663, 303.951965 avg, 0.000000 rate, 23.555105 seconds, 61 images
+Loaded: 0.000071 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.599237, Avg Recall: -nan,  count: 0
+62: 572.434326, 330.800201 avg, 0.000000 rate, 22.932564 seconds, 62 images
+Loaded: 0.000057 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.591298, Avg Recall: -nan,  count: 0
+63: 553.174255, 353.037598 avg, 0.000000 rate, 22.886866 seconds, 63 images
+Loaded: 0.000080 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.596937, Avg Recall: -nan,  count: 0
+64: 567.382751, 374.472107 avg, 0.000000 rate, 24.114846 seconds, 64 images
+Loaded: 0.000093 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.595733, Avg Recall: -nan,  count: 0
+65: 565.124573, 393.537354 avg, 0.000000 rate, 23.231932 seconds, 65 images
+Loaded: 0.000062 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.590907, Avg Recall: -nan,  count: 0
+66: 550.680542, 409.251678 avg, 0.000000 rate, 22.943708 seconds, 66 images
+Loaded: 0.000078 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.594286, Avg Recall: -nan,  count: 0
+67: 561.315552, 424.458069 avg, 0.000000 rate, 24.092568 seconds, 67 images
+Loaded: 0.000087 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.596242, Avg Recall: -nan,  count: 0
+68: 566.783936, 438.690643 avg, 0.000000 rate, 23.587888 seconds, 68 images
+Loaded: 0.000100 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.600051, Avg Recall: -nan,  count: 0
+69: 571.085022, 451.930084 avg, 0.000000 rate, 23.046502 seconds, 69 images
+Loaded: 0.000058 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.589660, Avg Recall: -nan,  count: 0
+70: 549.960205, 461.733093 avg, 0.000000 rate, 22.976974 seconds, 70 images
+Resizing
+448
+Loaded: 0.140386 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.593575, Avg Recall: -nan,  count: 0
+71: 379.783508, 453.538147 avg, 0.000000 rate, 15.326046 seconds, 71 images
+Loaded: 0.000083 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.598074, Avg Recall: -nan,  count: 0
+72: 386.891937, 446.873535 avg, 0.000000 rate, 15.235791 seconds, 72 images
+Loaded: 0.000075 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.598280, Avg Recall: -nan,  count: 0
+73: 384.873566, 440.673523 avg, 0.000000 rate, 16.008069 seconds, 73 images
+Loaded: 0.000083 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.598096, Avg Recall: -nan,  count: 0
+74: 385.101929, 435.116364 avg, 0.000000 rate, 15.202425 seconds, 74 images
+Loaded: 0.000067 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.597039, Avg Recall: -nan,  count: 0
+75: 384.492584, 430.053986 avg, 0.000000 rate, 16.034494 seconds, 75 images
+Loaded: 0.000091 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.593745, Avg Recall: -nan,  count: 0
+76: 379.216736, 424.970276 avg, 0.000000 rate, 15.558326 seconds, 76 images
+Loaded: 0.000092 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.600223, Avg Recall: -nan,  count: 0
+77: 388.346252, 421.307861 avg, 0.000000 rate, 15.718260 seconds, 77 images
+Loaded: 0.000068 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.592269, Avg Recall: -nan,  count: 0
+78: 376.169159, 416.794006 avg, 0.000000 rate, 15.593681 seconds, 78 images
+Loaded: 0.000080 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.596382, Avg Recall: -nan,  count: 0
+79: 383.547089, 413.469299 avg, 0.000000 rate, 15.089187 seconds, 79 images
+Loaded: 0.000065 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.596967, Avg Recall: -nan,  count: 0
+80: 385.585815, 410.680939 avg, 0.000000 rate, 15.127862 seconds, 80 images
+Resizing
+448
+Loaded: 0.326166 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.599556, Avg Recall: -nan,  count: 0
+81: 388.253571, 408.438202 avg, 0.000000 rate, 15.066403 seconds, 81 images
+Loaded: 0.000064 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.600763, Avg Recall: -nan,  count: 0
+82: 389.643036, 406.558685 avg, 0.000000 rate, 14.961952 seconds, 82 images
+Loaded: 0.000072 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.597585, Avg Recall: -nan,  count: 0
+83: 385.687317, 404.471558 avg, 0.000000 rate, 14.865959 seconds, 83 images
+Loaded: 0.000070 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.597812, Avg Recall: -nan,  count: 0
+84: 385.251129, 402.549500 avg, 0.000000 rate, 14.823942 seconds, 84 images
+Loaded: 0.000058 secondsSaving weights to ./pjreddie/backup//yolov2.backup
+Couldn't open file: ./pjreddie/backup//yolov2.backup
+
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.597532, Avg Recall: -nan,  count: 0
+85: 386.726959, 400.967255 avg, 0.000000 rate, 14.877673 seconds, 85 images
+Loaded: 0.000064 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.596871, Avg Recall: -nan,  count: 0
+86: 385.733551, 399.443878 avg, 0.000000 rate, 14.771756 seconds, 86 images
+Loaded: 0.000082 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.599127, Avg Recall: -nan,  count: 0
+87: 389.396332, 398.439117 avg, 0.000000 rate, 15.779939 seconds, 87 images
+Loaded: 0.000070 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.594305, Avg Recall: -nan,  count: 0
+88: 380.894745, 396.684692 avg, 0.000000 rate, 15.598801 seconds, 88 images
+Loaded: 0.000094 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.590355, Avg Recall: -nan,  count: 0
+89: 373.143585, 394.330566 avg, 0.000000 rate, 15.763271 seconds, 89 images
+Loaded: 0.000095 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.598014, Avg Recall: -nan,  count: 0
+90: 384.920868, 393.389587 avg, 0.000000 rate, 15.704738 seconds, 90 images
+Resizing
+608
+Loaded: 0.354991 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.593543, Avg Recall: -nan,  count: 0
+91: 697.338867, 423.784515 avg, 0.000000 rate, 29.353021 seconds, 91 images
+Loaded: 0.000074 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.597068, Avg Recall: -nan,  count: 0
+92: 713.500793, 452.756134 avg, 0.000000 rate, 30.969168 seconds, 92 images
+Loaded: 0.000088 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.589465, Avg Recall: -nan,  count: 0
+93: 686.526611, 476.133179 avg, 0.000000 rate, 30.729917 seconds, 93 images
+Loaded: 0.000075 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.589063, Avg Recall: -nan,  count: 0
+94: 686.318237, 497.151672 avg, 0.000000 rate, 30.584603 seconds, 94 images
+Loaded: 0.000092 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.595484, Avg Recall: -nan,  count: 0
+95: 701.484741, 517.584961 avg, 0.000000 rate, 28.945644 seconds, 95 images
+Loaded: 0.000063 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.590345, Avg Recall: -nan,  count: 0
+96: 693.341797, 535.160645 avg, 0.000000 rate, 28.806773 seconds, 96 images
+Loaded: 0.000091 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.597018, Avg Recall: -nan,  count: 0
+97: 708.585144, 552.503113 avg, 0.000000 rate, 29.209891 seconds, 97 images
+Loaded: 0.000068 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.594214, Avg Recall: -nan,  count: 0
+98: 700.712463, 567.324036 avg, 0.000000 rate, 29.024685 seconds, 98 images
+Loaded: 0.000060 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.597910, Avg Recall: -nan,  count: 0
+99: 707.373962, 581.329041 avg, 0.000000 rate, 29.018273 seconds, 99 images
+Loaded: 0.000078 seconds
+Region Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.597655, Avg Recall: -nan,  count: 0
+100: 711.014160, 594.297546 avg, 0.000000 rate, 29.248582 seconds, 100 images
