@@ -37,8 +37,10 @@ def read_checker(image_name,H,W):
 	xmx, ymx = big_rec[0] + big_rec[2], big_rec[1] + big_rec[3] 
 	x = (xmn+xmx)/2
 	y = (ymn+ymx)/2
-	f = open(os.path.join("fixed_test", "{0}.txt".format(image_name)),'w')
-	f.write(str(int(0)) + ' ' + str(x/W) + ' ' + str (y/H) + ' ' + str(big_rec[2]/W) + ' ' + str(big_rec[3]/H) + "\n")
+	w = xmx - xmn
+	h = ymx - ymn
+	f = open(os.path.join("fixed_data", "{0}.txt".format(image_name)),'w')
+	f.write(str(int(0)) + ' ' + str(x/W) + ' ' + str (y/H) + ' ' + str(w/W) + ' ' + str(h/H) + "\n")
 	
 	c = 1
 	for i in range(0, small_recs.shape[0], 2):
@@ -54,7 +56,7 @@ def read_checker(image_name,H,W):
 		c += 1
 
 if __name__ == '__main__':
-	dir_path = os.path.join(os.path.dirname(os.path.realpath(__file__)),"fixed_test")
+	dir_path = os.path.join(os.path.dirname(os.path.realpath(__file__)),"fixed_data")
 	
 	if not os.path.exists(dir_path):
 		print("error reading the directory")
